@@ -3,20 +3,24 @@ var tableData = data;
 
 // YOUR CODE HERE!
 // Get a reference to the table body
-var tbody = d3.select("tbody");
+function tablebody(T){
 
-// Console.log the UFO data from data.js
-console.log(data);
+  var tbody = d3.select("tbody");
+  tbody.html(" ");
+  // Console.log the UFO data from data.js
+  //console.log(data);
 
-data.forEach((UFOdata) => {
+  T.forEach((tableData) => {
     var row = tbody.append("tr");
-    Object.entries(UFOdata).forEach(([key, value]) => {
+    Object.entries(tableData).forEach(([key, value]) => {
       var cell = tbody.append("td");
       cell.text(value);
     });
   });
 
+};
 
+tablebody(tableData);
   // Assign the data from `data.js` to a descriptive variable
 var date = data;
 
@@ -33,6 +37,8 @@ submit.on("click", function() {
 
     var filteredData = date.filter(dates => dates.datetime === inputValue);
     console.log(filteredData);
+    tablebody(filteredData);
 
 });
+
 
